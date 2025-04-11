@@ -7,9 +7,13 @@
     let showInfo = true;
     let expandedTerm: string | null = null;
     let showNotes = false;
+    let incomeInput = '60,000';
   
     $: {
         try {
+            // Remove commas and convert to number
+            const cleanIncome = parseInt(incomeInput.replace(/,/g, '')) || 0;
+            income = cleanIncome;
             result = calculateTax(income);
         } catch (error) {
             console.error('Error calculating tax:', error);
@@ -24,8 +28,8 @@
         return new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
         }).format(amount);
     }
 
@@ -40,6 +44,22 @@
             }
         }
         return 0;
+    }
+
+    function handleIncomeChange(event: Event) {
+        const input = event.target as HTMLInputElement;
+        // Remove any non-numeric characters except commas
+        let value = input.value.replace(/[^\d,]/g, '');
+        // Format with commas
+        const parts = value.split(',');
+        const integerPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        value = parts.length > 1 ? integerPart + ',' + parts.slice(1).join('') : integerPart;
+        incomeInput = value;
+    }
+
+    function handleIncomeBlur() {
+        // Format the input when it loses focus
+        incomeInput = formatMoney(income).replace('$', '');
     }
 </script>
   
@@ -79,6 +99,7 @@
             <p class="text-xs sm:text-sm text-gray-600 italic">
                 Try the calculator below to see how your income is actually taxed. Notice how each additional dollar you earn 
                 always increases your take-home pay, even when you enter a new tax bracket.
+                This tool uses single filer tax brackets for simplicity, but the concept of marginal tax rates applies to all filing statuses (married filing jointly, head of household, etc.).
             </p>
         </div>
     </div>
@@ -92,10 +113,10 @@
                 <span class="text-gray-500 mr-2 text-lg">$</span>
                 <input
                     id="income"
-                    type="number"
-                    bind:value={income}
-                    min="0"
-                    step="1000"
+                    type="text"
+                    bind:value={incomeInput}
+                    on:input={handleIncomeChange}
+                    on:blur={handleIncomeBlur}
                     class="flex-1 px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
             </div>
@@ -291,6 +312,13 @@
                         <li>How marginal tax rates work in principle</li>
                         <li>The progressive nature of the federal income tax system</li>
                         <li>Why moving to a higher tax bracket doesn't reduce your take-home pay</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-3 sm:p-4 rounded-lg border border-yellow-200 shadow-sm">
+                    <h4 class="font-medium mb-2 text-sm sm:text-base">Sources:</h4>
+                    <ul class="list-disc pl-4 sm:pl-5 space-y-1 text-xs sm:text-sm">
+                        <li>2024 Tax Brackets: <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800">IRS Publication</a></li>
                     </ul>
                 </div>
 
