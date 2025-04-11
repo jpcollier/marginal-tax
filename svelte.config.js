@@ -6,7 +6,7 @@ const config = {
 	kit: {
 		adapter: adapter({
 			// See https://kit.svelte.dev/docs/adapters for more information about adapters.
-			edge: false,
+			runtime: 'nodejs18.x',
 			external: [],
 			split: false
 		})
