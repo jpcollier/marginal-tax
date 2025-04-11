@@ -75,19 +75,25 @@
   
 <div class="max-w-4xl mx-auto px-4 py-4 sm:py-8">
     <header class="text-center mb-8 sm:mb-12">
-        <h1 class="text-2xl sm:text-3xl font-bold mb-2 text-gray-900">Understanding Marginal Tax Rates</h1>
-        <p class="text-sm sm:text-base text-gray-600">See how your income is actually taxed across different brackets</p>
+        <div class="bg-white p-6 sm:p-8 rounded-xl border-2 border-blue-600 shadow-sm">
+            <h1 class="text-2xl sm:text-3xl font-bold mb-2 text-gray-900">
+                Understanding <span class="text-blue-600">Marginal Tax Rates</span>
+            </h1>
+            <p class="text-gray-600 text-base sm:text-lg">
+                See how your income is actually taxed across different brackets
+            </p>
+        </div>
     </header>
     
     <!-- Educational Content -->
-    <div class="mb-8 sm:mb-12 bg-blue-50 p-4 sm:p-6 rounded-xl border border-blue-100">
+    <div class="mb-8 sm:mb-12 bg-gray-50 p-4 sm:p-6 rounded-xl border border-gray-200">
         <div class="space-y-4 text-gray-700">
-            <p class="text-base sm:text-lg font-medium text-blue-900">
+            <p class="text-base sm:text-lg font-medium text-gray-900">
                 <span class="font-bold">Common Myth:</span> "If I earn more money, I might end up with less take-home pay because I'll be in a higher tax bracket."
             </p>
             
-            <div class="bg-white p-4 sm:p-5 rounded-lg border border-blue-200 shadow-sm">
-                <h3 class="font-semibold text-base sm:text-lg mb-2 text-blue-900">The Truth:</h3>
+            <div class="bg-white p-4 sm:p-5 rounded-lg border border-gray-200 shadow-sm">
+                <h3 class="font-semibold text-base sm:text-lg mb-2 text-blue-600">The Truth:</h3>
                 <p class="mb-3">This is a common misconception! In reality:</p>
                 <ul class="list-disc pl-4 sm:pl-5 space-y-1 sm:space-y-2 text-sm sm:text-base">
                     <li>Only the portion of your income that exceeds a bracket's threshold is taxed at the higher rate</li>
@@ -96,8 +102,8 @@
                 </ul>
             </div>
 
-            <div class="bg-white p-4 sm:p-5 rounded-lg border border-blue-200 shadow-sm">
-                <h3 class="font-semibold text-base sm:text-lg mb-2 text-blue-900">Example:</h3>
+            <div class="bg-white p-4 sm:p-5 rounded-lg border border-gray-200 shadow-sm">
+                <h3 class="font-semibold text-base sm:text-lg mb-2 text-blue-600">Example:</h3>
                 <p class="mb-3">Let's say you're a single filer earning $47,150 (the top of the 12% bracket):</p>
                 <ul class="list-disc pl-4 sm:pl-5 space-y-1 sm:space-y-2 text-sm sm:text-base">
                     <li>If you earn $1 more, only that $1 is taxed at 22%</li>
@@ -118,7 +124,7 @@
     <div class="mb-8 sm:mb-12 bg-white p-4 sm:p-6 rounded-xl border border-gray-200 shadow-sm">
         <!-- Income Input Section -->
         <div class="bg-gray-50 p-4 sm:p-5 rounded-lg mb-6">
-            <label for="income" class="block text-sm font-medium text-gray-700 mb-2">Annual Income</label>
+            <label for="income" class="block text-sm font-medium text-gray-900 mb-2">Annual Income</label>
             <div class="flex items-center">
                 <span class="text-gray-500 mr-2 text-lg">$</span>
                 <input
@@ -127,18 +133,18 @@
                     bind:value={incomeInput}
                     on:input={handleIncomeChange}
                     on:blur={handleIncomeBlur}
-                    class="flex-1 px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    class="flex-1 px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600"
                 />
             </div>
             <div class="flex justify-between mt-3">
                 <button 
-                    class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600"
                     on:click={decrementIncome}
                 >
                     -$1,000
                 </button>
                 <button 
-                    class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600"
                     on:click={incrementIncome}
                 >
                     +$1,000
@@ -160,15 +166,15 @@
                     </button>
                 </div>
                 <div class="flex items-center mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
                         <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd" />
                     </svg>
-                    <p class="text-xs sm:text-sm text-gray-600">Total Tax Owed</p>
+                    <p class="text-xs sm:text-sm text-gray-700">Total Tax Owed</p>
                 </div>
-                <p class="text-xl sm:text-2xl font-bold text-gray-900">{formatMoney(result.totalTax)}</p>
+                <p class="text-xl sm:text-2xl font-bold text-red-600">{formatMoney(result.totalTax)}</p>
                 {#if expandedTerm === 'totalTax'}
-                    <div class="absolute z-10 mt-2 p-2 bg-white border rounded-lg shadow-lg text-xs text-gray-600">
+                    <div class="absolute z-10 mt-2 p-2 bg-white border border-gray-200 rounded-lg shadow-lg text-xs text-gray-600">
                         The total amount of federal income tax you owe based on your income and the marginal tax rates.
                     </div>
                 {/if}
@@ -185,14 +191,14 @@
                     </button>
                 </div>
                 <div class="flex items-center mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                     </svg>
-                    <p class="text-xs sm:text-sm text-gray-600">Take-Home Pay</p>
+                    <p class="text-xs sm:text-sm text-gray-700">Take-Home Pay</p>
                 </div>
-                <p class="text-xl sm:text-2xl font-bold text-gray-900">{formatMoney(income - result.totalTax)}</p>
+                <p class="text-xl sm:text-2xl font-bold text-green-600">{formatMoney(income - result.totalTax)}</p>
                 {#if expandedTerm === 'takeHome'}
-                    <div class="absolute z-10 mt-2 p-2 bg-white border rounded-lg shadow-lg text-xs text-gray-600">
+                    <div class="absolute z-10 mt-2 p-2 bg-white border border-gray-200 rounded-lg shadow-lg text-xs text-gray-600">
                         Your income after federal income tax is deducted. This is what you actually receive.
                     </div>
                 {/if}
@@ -209,14 +215,14 @@
                     </button>
                 </div>
                 <div class="flex items-center mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                     </svg>
-                    <p class="text-xs sm:text-sm text-gray-600">Effective Tax Rate</p>
+                    <p class="text-xs sm:text-sm text-gray-700">Effective Tax Rate</p>
                 </div>
-                <p class="text-xl sm:text-2xl font-bold text-gray-900">{((result.totalTax / income) * 100).toFixed(2)}%</p>
+                <p class="text-xl sm:text-2xl font-bold text-blue-600">{((result.totalTax / income) * 100).toFixed(2)}%</p>
                 {#if expandedTerm === 'effectiveRate'}
-                    <div class="absolute z-10 mt-2 p-2 bg-white border rounded-lg shadow-lg text-xs text-gray-600">
+                    <div class="absolute z-10 mt-2 p-2 bg-white border border-gray-200 rounded-lg shadow-lg text-xs text-gray-600">
                         The average tax rate you pay on your total income. This is different from your marginal tax rate.
                     </div>
                 {/if}
@@ -244,7 +250,7 @@
                                 <td class="px-3 sm:px-4 py-2">
                                     {#if detail.incomeInBracket > 0}
                                         <div class="relative group">
-                                            <div class="w-full bg-gradient-to-r from-blue-100 to-blue-200 rounded-lg h-3">
+                                            <div class="w-full bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg h-3">
                                                 <div 
                                                     class="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-lg transition-all duration-300" 
                                                     style="width: {(detail.incomeInBracket / income * 100).toFixed(1)}%"
@@ -260,7 +266,7 @@
                                     {/if}
                                 </td>
                                 <td class="px-3 sm:px-4 py-2 text-gray-700 text-sm">{formatMoney(detail.incomeInBracket)}</td>
-                                <td class="px-3 sm:px-4 py-2 text-gray-700 text-sm">{formatMoney(detail.taxInBracket)}</td>
+                                <td class="px-3 sm:px-4 py-2 text-red-600 text-sm">{formatMoney(detail.taxInBracket)}</td>
                             </tr>
                             {/each}
                         </tbody>
@@ -273,8 +279,8 @@
         </div>
 
         <!-- Key Insight -->
-        <div class="bg-blue-50 p-4 sm:p-5 rounded-lg border border-blue-200 mt-6">
-            <h3 class="font-semibold text-base sm:text-lg mb-2 text-blue-900">Key Insight:</h3>
+        <div class="bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200 mt-6">
+            <h3 class="font-semibold text-base sm:text-lg mb-2 text-blue-600">Key Insight:</h3>
             <p class="mb-3">Your highest tax bracket rate is NOT your effective tax rate:</p>
             <ul class="list-disc pl-4 sm:pl-5 space-y-1 sm:space-y-2 text-sm sm:text-base">
                 <li>Your <span class="font-semibold">marginal tax rate</span> is the rate applied to your highest bracket ({(getHighestBracketRate() * 100).toFixed(0)}% in this case)</li>
