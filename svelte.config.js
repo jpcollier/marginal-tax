@@ -6,10 +6,9 @@ const config = {
 	kit: {
 		adapter: adapter({
 			// See https://kit.svelte.dev/docs/adapters for more information about adapters.
-			pages: 'build',
-			assets: 'build',
-			fallback: null,
-			precompress: true
+			edge: false,
+			external: [],
+			split: false
 		})
 	},
 	preprocess: vitePreprocess()
