@@ -301,5 +301,17 @@
             </div>
         {/if}
     </div>
+
+    <!-- Footer -->
+    <footer class="mt-12 text-center text-sm text-gray-500">
+        <div class="space-y-2">
+            <p>Built by <a href="https://johncollier.me" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800">John Collier</a></p>
+            <div class="flex justify-center space-x-4">
+                <a href="https://github.com/jpcollier" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-700">GitHub</a>
+                <a href="https://www.linkedin.com/in/john-collier-6557115b/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-700">LinkedIn</a>
+                <a href="https://bsky.app/profile/katocollier.bsky.social" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-700">Bluesky</a>
+            </div>
+            <p class="text-xs">© {new Date().getFullYear()} All rights reserved</p>
+        </div>
+    </footer>
 </div>
-  
