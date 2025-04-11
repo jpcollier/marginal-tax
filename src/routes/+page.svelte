@@ -61,6 +61,16 @@
         // Format the input when it loses focus
         incomeInput = formatMoney(income).replace('$', '');
     }
+
+    function incrementIncome() {
+        const currentValue = parseInt(incomeInput.replace(/,/g, '')) || 0;
+        incomeInput = formatMoney(currentValue + 1000).replace('$', '');
+    }
+
+    function decrementIncome() {
+        const currentValue = parseInt(incomeInput.replace(/,/g, '')) || 0;
+        incomeInput = formatMoney(Math.max(0, currentValue - 1000)).replace('$', '');
+    }
 </script>
   
 <div class="max-w-4xl mx-auto px-4 py-4 sm:py-8">
@@ -123,13 +133,13 @@
             <div class="flex justify-between mt-3">
                 <button 
                     class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    on:click={() => income = Math.max(0, income - 1000)}
+                    on:click={decrementIncome}
                 >
                     -$1,000
                 </button>
                 <button 
                     class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    on:click={() => income += 1000}
+                    on:click={incrementIncome}
                 >
                     +$1,000
                 </button>
